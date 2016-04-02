@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
         if(accController.isAuthenticated(username,password,s)) {
             if (s.equals("Customer")) {
-                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);
             } else if (s.equals("Vendor")) {
 

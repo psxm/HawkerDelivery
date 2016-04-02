@@ -47,7 +47,7 @@ public class BaseActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 
         dataList = new ArrayList<DrawerItem>();
-        dataList.add(new DrawerItem("Home", "home"));
+        dataList.add(new DrawerItem("Main", "home"));
         dataList.add(new DrawerItem("Account Settings", "settings"));
         dataList.add(new DrawerItem("Favourites","favourites"));
         dataList.add(new DrawerItem("Logout","logout"));
@@ -112,7 +112,7 @@ public class BaseActivity extends AppCompatActivity {
 
         switch (position){
             case 0:
-                intent = new Intent(this,HomeActivity.class);
+                intent = new Intent(this,MainActivity.class);
                 break;
             case 1:
                 intent = new Intent(this,AccSettingsActivity.class);

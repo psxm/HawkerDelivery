@@ -27,7 +27,11 @@
         <activity android:name=".Boundary.FavouritesActivity" />
         <activity android:name=".Boundary.HomeActivity" />
         <activity android:name=".Boundary.AccSettingsActivity" />
-        <activity android:name=".Boundary.OrderActivity"></activity>
+        <activity android:name=".Boundary.OrderActivity" />
+        <activity
+            android:name=".Boundary.MainActivity"
+            android:label="@string/title_activity_main"
+            ></activity>
     </application>
 
 </manifest>

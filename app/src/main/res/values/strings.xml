@@ -9,7 +9,7 @@
     <string name="title_activity_view_options">Home</string>
     <string name="open_drawer">Open navigation drawer</string>
     <string name="close_drawer">Close navigation drawer</string>
-    <string name ="minus">–</string>
+    <string name="minus">–</string>
     <string name="plus">+</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -61,5 +61,7 @@
         <item>5.4 km</item>
         <item>6.9 km</item>
     </string-array>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>

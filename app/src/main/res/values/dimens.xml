@@ -9,4 +9,5 @@
     <dimen name="body_2">14sp</dimen>
     <dimen name="body_1">13sp</dimen>
     <dimen name="title">24sp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
 </resources>
