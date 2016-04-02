@@ -32,7 +32,7 @@
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:hint="@string/username"
             android:textColorHint="@color/hintTextLight"
             style="@style/EditTextCustom"/>
@@ -40,8 +40,10 @@
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:hint="@string/password"
+
+            android:password="true"
             android:textColorHint="@color/hintTextLight"
             style="@style/EditTextCustom"/>
         <RelativeLayout

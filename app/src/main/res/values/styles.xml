@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -26,5 +27,5 @@
         <item name="android:background">@drawable/apptheme_btn_default_holo_light</item>
         <item name="android:textColor">@color/primaryTextLight</item>
     </style>
-
+   
 </resources>

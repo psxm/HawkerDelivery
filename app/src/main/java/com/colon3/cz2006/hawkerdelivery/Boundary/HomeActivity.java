@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.colon3.cz2006.hawkerdelivery.Entity.Dish;
 import com.colon3.cz2006.hawkerdelivery.R;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
@@ -16,7 +17,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_home);
         super.onCreateDrawer();
         setTitle("Home");
-
+        
         Button viewByHawker = (Button)findViewById(R.id.hawker_btn);
         viewByHawker.setOnClickListener(this);
         Button viewByFoodCat = (Button)findViewById(R.id.food_btn);

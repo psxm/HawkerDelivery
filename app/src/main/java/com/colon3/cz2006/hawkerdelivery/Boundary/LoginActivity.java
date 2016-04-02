@@ -3,6 +3,7 @@ package com.colon3.cz2006.hawkerdelivery.Boundary;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,17 +11,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.colon3.cz2006.hawkerdelivery.Controller.AccountController;
 import com.colon3.cz2006.hawkerdelivery.R;
 
 public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-
+    private EditText usernameEText;
+    private EditText passwordEText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        usernameEText = (EditText)findViewById(R.id.username);
+        passwordEText = (EditText)findViewById(R.id.password);
+        usernameEText.setTypeface(Typeface.DEFAULT);
+        passwordEText.setTypeface(Typeface.DEFAULT);
         String[] domain = new String[] {"Customer","Vendor","Delivery Team"};
 
         Spinner spinner = (Spinner)findViewById(R.id.domain_spinner);
@@ -80,14 +88,21 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
     }
     public void login (View view){
+        AccountController accController = new AccountController();
         Spinner spinner = (Spinner)findViewById(R.id.domain_spinner);
         String s = spinner.getSelectedItem().toString();
-        if (s == "Customer") {
-            Intent i = new Intent(LoginActivity.this,HomeActivity.class);
-            startActivity(i);
-        }
-        else if (s=="vendor"){
 
+        String username = usernameEText.getText().toString();
+        String password = passwordEText.getText().toString();
+
+
+        if(accController.isAuthenticated(username,password,s)) {
+            if (s.equals("Customer")) {
+                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(i);
+            } else if (s.equals("Vendor")) {
+
+            }
         }
         else {
             android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);

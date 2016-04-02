@@ -33,7 +33,7 @@ public class DishDAOImpl implements DishDAO {
     public ArrayList<Dish> getDishByCategories(String Categories) {
         ArrayList<Dish> result = new ArrayList<Dish>();
         for (Dish d : dishes){
-            if (d.getCategories()==Categories)
+            if (d.getCategories().equals(Categories))
                 result.add(d);
         }
         return result;
