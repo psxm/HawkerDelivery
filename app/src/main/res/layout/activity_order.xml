@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/dish_img_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerVertical="true"/>
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/dish_img_order">
+            <TextView
+                android:textColor="@color/primaryTextDark"
+                android:textSize="@dimen/body_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dish_name_order"/>
+            <RatingBar
+                style="?android:attr/ratingBarStyle"
+                android:id="@+id/dish_rating_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="0.5"/>
+            <Button
+                android:id="@+id/rate_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RATE IT"
+                android:textSize="@dimen/button"
+                style="@style/LoginButtonCustom"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+
+
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quantity"
+                android:textSize="@dimen/body_1"
+                android:textColor="@color/primaryTextDark"/>
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/decrement_btn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="@string/minus"
+                    android:textSize="@dimen/title"
+                    android:textStyle="bold"
+
+                    style="@style/LoginButtonCustom"
+                    android:onClick="decrement"/>
+                <TextView
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/order_quantity"
+                    android:textColor="@color/primaryTextDark"
+                    android:textSize="@dimen/title"
+                    android:gravity="center_vertical"
+                    android:text="0"/>
+                <Button
+                    android:id="@+id/increment_btn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="@string/plus"
+                    android:textSize="@dimen/title"
+                    android:textStyle="bold"
+                    style="@style/LoginButtonCustom"
+                    android:onClick="increment"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textSize="@dimen/body_1"
+                android:textColor="@color/primaryTextDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price"/>
+            <TextView
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/title"
+                android:textColor="@color/primaryTextDark"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/dish_price_order"
+                android:text="S$0.0"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/add_to_cart_btn"
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD TO CART"
+        android:textSize="@dimen/button"
+        style="@style/LoginButtonCustom"/>
+
+</LinearLayout>

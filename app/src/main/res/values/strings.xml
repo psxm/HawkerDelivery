@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">HawkerDelivery</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="view_by_hawker">View by Hawker Centre</string>
+    <string name="view_by_food">View by Food Category</string>
+    <string name="title_activity_view_options">Home</string>
+    <string name="open_drawer">Open navigation drawer</string>
+    <string name="close_drawer">Close navigation drawer</string>
+    <string name ="minus">–</string>
+    <string name="plus">+</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_view_by_hawker">ViewByHawkerActivity</string>
+    <string name="title_activity_view_by_food_cat">ViewByFoodCatActivity</string>
+
+    <!-- string array for view by hawker -->
+    <!-- hawker_name-->
+    <string-array name="hawker_name_list">
+        <item>ABC Brickworks Market &amp; Food Centre</item>
+        <item>Adam Food Centre</item>
+        <item>Bukit Timah Food Centre</item>
+        <item>Chinatown Complex Food Centre</item>
+        <item>Hong Lim Market &amp; Food Centre</item>
+        <item>Maxwell Food Centre</item>
+        <item>Old Airport Road Food Centre</item>
+        <item>Pek Kio Food Centre</item>
+        <item>Taman Jurong Food Centre</item>
+        <item>Tiong Bahru Market</item>
+        <item>Redhill Market and Food Centre</item>
+    </string-array>
+
+    <!-- hawker_location-->
+    <string-array name="hawker_location_list">
+        <item>Blk 6 Jalan Bukit Merah, Singapore 150006</item>
+        <item>2 Adam Road, Singapore 289876</item>
+        <item>51 Upper Bukit Timah Road, Singapore 588215</item>
+        <item>Blk 335 Smith Street, Singapore 050335</item>
+        <item>Blk 531A Upper Cross Street, Singapore 051531</item>
+        <item>1 Kadayanallur Street, Singapore 069184</item>
+        <item>Blk 51 Old Airport Road, Singapore 390051</item>
+        <item>Blk41A Cambridge Road, Singapore 211041</item>
+        <item>3 Yung Sheng Road, Singapore 618499</item>
+        <item>30 Seng Poh Road, Singapore 168898</item>
+        <item>85 Redhill Ln. Singapore 150085</item>
+    </string-array>
+
+    <!-- hawker_distance-->
+    <string-array name="hawker_distance_list">
+        <item>4.3 km</item>
+        <item>2.0 km</item>
+        <item>3.2 km</item>
+        <item>5.2 km</item>
+        <item>8.1 km</item>
+        <item>7.8 km</item>
+        <item>1.2 km</item>
+        <item>0.6 km</item>
+        <item>4.4 km</item>
+        <item>5.4 km</item>
+        <item>6.9 km</item>
+    </string-array>
+
+</resources>

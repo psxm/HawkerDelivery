@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="wrap_content"
+    android:background="@color/background" >
+    <ImageView
+        android:id="@+id/dish_img"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:paddingTop="8dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_alignParentTop="true"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@+id/dish_img" >
+        <TextView
+            android:id="@+id/dish_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:textColor="@color/primaryTextDark"
+
+            android:textSize="@dimen/body_2"/>
+        <RelativeLayout
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/dish_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RatingBar
+                android:id="@+id/dish_rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerVertical="true"
+                android:numStars="5"
+                android:stepSize="0.5"
+                />
+            <TextView
+                android:id="@+id/dish_rating_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerVertical="true"
+                android:textColor="@color/primaryTextDark"
+                android:layout_marginLeft="8dp"
+                android:textSize="@dimen/caption"
+                android:layout_toRightOf="@+id/dish_rating"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dish_price"
+        android:paddingTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primaryTextDark"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/body_2"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"/>
+</RelativeLayout>
