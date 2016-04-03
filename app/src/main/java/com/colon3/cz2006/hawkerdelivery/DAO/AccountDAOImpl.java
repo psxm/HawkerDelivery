@@ -2,6 +2,7 @@ package com.colon3.cz2006.hawkerdelivery.DAO;
 
 import com.colon3.cz2006.hawkerdelivery.Entity.Account;
 import com.colon3.cz2006.hawkerdelivery.Entity.CustomerAccount;
+import com.colon3.cz2006.hawkerdelivery.Entity.DeliveryAccount;
 import com.colon3.cz2006.hawkerdelivery.Entity.VendorAccount;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class AccountDAOImpl implements AccountDAO {
         accounts = new ArrayList<>();
         accounts.add(new CustomerAccount("123","Hippo"));
         accounts.add(new VendorAccount("234","Yolo"));
+        accounts.add(new DeliveryAccount("111", "aaa"));
     }
 
     @Override

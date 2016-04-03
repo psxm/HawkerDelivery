@@ -24,14 +24,17 @@
         <activity
             android:name=".Boundary.ViewByFoodCatActivity"
             android:label="@string/title_activity_view_by_food_cat" />
-        <activity android:name=".Boundary.FavouritesActivity" />
-        <activity android:name=".Boundary.HomeActivity" />
-        <activity android:name=".Boundary.AccSettingsActivity" />
-        <activity android:name=".Boundary.OrderActivity" />
         <activity
             android:name=".Boundary.MainActivity"
             android:label="@string/title_activity_main"
             ></activity>
+        <activity android:name=".Boundary.FavouritesActivity" />
+        <activity android:name=".Boundary.HomeActivity" />
+        <activity android:name=".Boundary.AccSettingsActivity" />
+        <activity android:name=".Boundary.OrderActivity" />
+        <activity android:name=".Boundary.DeliveryActivity" />
+        <activity android:name=".Boundary.ListOrderActivity" />
+        <activity android:name=".Boundary.ListProcessingOrderActivity"></activity>
     </application>
 
 </manifest>

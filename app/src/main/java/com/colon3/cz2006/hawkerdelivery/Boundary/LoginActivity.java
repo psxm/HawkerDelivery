@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
     public void login (View view){
         AccountController accController = new AccountController();
         Spinner spinner = (Spinner)findViewById(R.id.domain_spinner);
@@ -100,8 +101,13 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             if (s.equals("Customer")) {
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);
-            } else if (s.equals("Vendor")) {
+            }
+            else if (s.equals("Vendor")) {
 
+            }
+            else if (s.equals("Delivery Team")) {
+                Intent i = new Intent(LoginActivity.this, DeliveryActivity.class);
+                startActivity(i);
             }
         }
         else {
