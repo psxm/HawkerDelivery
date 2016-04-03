@@ -14,12 +14,12 @@ public class AccountController {
     public AccountController(){
 
     }
-    public boolean isAuthenticated(String username,String password,String domain){
+    public Account isAuthenticated(String username,String password,String domain){
         ArrayList<Account> accountArrayList = accDAO.getAccountByDomain(domain);
         for(Account acc:accountArrayList){
             if(acc.getUsername().equals(username)&&acc.getPassword().equals(password))
-                return true;
+                return acc;
         }
-        return false;
+        return null;
     }
 }

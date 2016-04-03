@@ -11,4 +11,5 @@ import java.util.List;
 public interface DishDAO {
     ArrayList<Dish> getDishByCategories(String Categories);
     ArrayList<Dish> getAllDishes();
+    Dish getDishByID(int ID);
 }

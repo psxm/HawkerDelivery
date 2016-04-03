@@ -11,4 +11,5 @@ public interface AccountDAO {
     ArrayList<Account> getAllAccount();
     ArrayList<Account> getAccountByDomain(String domain);
 
+
 }
