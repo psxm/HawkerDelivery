@@ -29,14 +29,6 @@ public class OrderAdapter extends ArrayAdapter<Order> {
         public TextView priceView;
     }
 
-    public ArrayList<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(ArrayList<Order> orders) {
-        this.orders = orders;
-    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v= convertView;

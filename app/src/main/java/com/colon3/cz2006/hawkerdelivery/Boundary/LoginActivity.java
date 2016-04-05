@@ -16,6 +16,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.colon3.cz2006.hawkerdelivery.Controller.AccountController;
+import com.colon3.cz2006.hawkerdelivery.DAO.AccountDAO;
+import com.colon3.cz2006.hawkerdelivery.DAO.AccountDAOImpl;
+import com.colon3.cz2006.hawkerdelivery.Entity.Account;
 import com.colon3.cz2006.hawkerdelivery.R;
 
 public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -25,20 +28,16 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         usernameEText = (EditText)findViewById(R.id.username);
         passwordEText = (EditText)findViewById(R.id.password);
         usernameEText.setTypeface(Typeface.DEFAULT);
         passwordEText.setTypeface(Typeface.DEFAULT);
         String[] domain = new String[] {"Customer","Vendor","Delivery Team"};
-
         Spinner spinner = (Spinner)findViewById(R.id.domain_spinner);
-
         spinner.setOnItemSelectedListener(this);
-
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this,R.layout.spinner_item_light,domain);
-
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         spinner.setAdapter(spinnerAdapter);
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -52,6 +51,20 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             }
 
         });*/
+
+        /*
+        AccountDAO accountDAO = new AccountDAOImpl(this);
+        Account account = new Account();
+        account.setId(accountDAO.getLastId() + 1);
+        account.setUsername("Hippo"); account.setPassword("123"); account.setDomain("Customer");
+        accountDAO.addAccount(account);
+        account.setId(accountDAO.getLastId() + 1);
+        account.setUsername("Yolo"); account.setPassword("234"); account.setDomain("Vendor");
+        accountDAO.addAccount(account);
+        account.setId(accountDAO.getLastId() + 1);
+        account.setUsername("a"); account.setPassword("1"); account.setDomain("Delivery Team");
+        accountDAO.addAccount(account);
+        */
     }
 
     @Override
@@ -79,7 +92,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
-
         Toast.makeText(parent.getContext(),item,Toast.LENGTH_LONG).show();
     }
 
@@ -89,15 +101,14 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     public void login (View view){
-        AccountController accController = new AccountController();
+        AccountController accController = new AccountController(this);
         Spinner spinner = (Spinner)findViewById(R.id.domain_spinner);
         String s = spinner.getSelectedItem().toString();
 
         String username = usernameEText.getText().toString();
         String password = passwordEText.getText().toString();
 
-
-        if(accController.isAuthenticated(username,password,s)) {
+        if (accController.isAuthenticated(username, password, s)) {
             if (s.equals("Customer")) {
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);
@@ -123,6 +134,10 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             AlertDialog alert = builder.create();
             alert.show();
         }
+    }
 
+    public void register(View view) {
+        Intent i = new Intent(this, RegisterActivity.class);
+        startActivity(i);
     }
 }

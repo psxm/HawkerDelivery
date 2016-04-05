@@ -1,6 +1,8 @@
 package com.colon3.cz2006.hawkerdelivery.Boundary;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,8 +28,8 @@ import java.util.Date;
 public class ListOrderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
     private ListView list;
     private ArrayList<Order> orders = new ArrayList<>();
-    //private OrderDAOImpl orderDAO = new OrderDAOImpl();
-    OrderDAOImpl orderDAO;
+    private OrderDAOImpl orderDAO;
+    private OrderAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,18 +48,20 @@ public class ListOrderActivity extends AppCompatActivity implements AdapterView.
 
         orderDAO = new OrderDAOImpl(this);
 
-        /*Order o = new Order();
-        o.setHawkerID(6);
+/*
+        Order o = new Order();
+        o.setHawkerID(15);
         o.setStatus("Yes");
         ArrayList<Dish> dishes = new ArrayList<>();
-        dishes.add(new Dish("Malay","mee_siam","Mee Siam",3.0,5.7f));
+        dishes.add(new Dish("Malay","mee_goreng","Mee Siam",3.0,6.2f));
         o.setDishes(dishes);
         o.setDeliveryId(2);
-        o.setCustomerID(9);
+        o.setCustomerID(1);
         o.setDateTime(new Date());
-        o.setTotalPrice(5.7);
+        o.setTotalPrice(11.2);
         o.setOrderID(orderDAO.getLastId()+1);
-        orderDAO.addOrder(o);*/
+        orderDAO.addOrder(o);
+*/
 
         orders = orderDAO.getAllOrdersByStatus("Yes");
     }
@@ -66,7 +70,6 @@ public class ListOrderActivity extends AppCompatActivity implements AdapterView.
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         list = (ListView)findViewById(R.id.order_list);
         OrderController controller = new OrderController();
-        //orders = orderDAO.getAllOrdersByStatus("Yes");
         switch (position) {
             case 0:
                 orders = controller.sortByHawkerCenter(orders);
@@ -77,12 +80,12 @@ public class ListOrderActivity extends AppCompatActivity implements AdapterView.
             default:
                 orders = controller.sortByTime(orders);
         }
-        OrderAdapter adapter = new OrderAdapter(orders, this);
+        adapter = new OrderAdapter(orders, this);
         list.setAdapter(adapter);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(final AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(final AdapterView<?> parent, final View view, int position, long id) {
                 final Order o = orders.get(position);
                 CharSequence choices[] = new CharSequence[]{"Yes", "No"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
@@ -97,10 +100,17 @@ public class ListOrderActivity extends AppCompatActivity implements AdapterView.
                             String item = "Successfully added";
                             Toast.makeText(parent.getContext(), item, Toast.LENGTH_LONG).show();
 
+                            // restart activity to refresh list view
+                            Context context = view.getContext();
+                            ((ListOrderActivity) context).finish();
+                            Intent intent = new Intent(context, ListOrderActivity.class);
+                            context.startActivity(intent);
+
                             // refresh data
-                            orders = orderDAO.getAllOrdersByStatus("Yes");
-                            OrderAdapter orderAdapter = new OrderAdapter(orders, parent.getContext());
-                            list.setAdapter(orderAdapter);
+                            // orders = orderDAO.getAllOrdersByStatus("Yes");
+                            // adapter.notifyDataSetChanged();
+                            //OrderAdapter orderAdapter = new OrderAdapter(orders, parent.getContext());
+                            //list.setAdapter(orderAdapter);
                         }
                     }
                 });

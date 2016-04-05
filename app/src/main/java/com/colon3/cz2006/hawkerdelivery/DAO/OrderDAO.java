@@ -8,9 +8,11 @@ import java.util.ArrayList;
  * Created by Yeong How on 3/31/2016.
  */
 public interface OrderDAO {
-    ArrayList<Order> getOrdersByHawkerCenter(int hawkerID);
-    Order getOrderById(Integer id);
+    void addOrder(Order order);
+    Order getOrder(int id);
+    int updateOrder(Order order);
+    void deleteOrder(Order order);
     ArrayList<Order> getAllOrders();
     ArrayList<Order> getAllOrdersByStatus(String s);
-    ArrayList<Order> getProcessingOrders();
+    int getLastId();
 }

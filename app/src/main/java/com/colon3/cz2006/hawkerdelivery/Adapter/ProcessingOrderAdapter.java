@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.colon3.cz2006.hawkerdelivery.DAO.CustomerDAOImpl;
+import com.colon3.cz2006.hawkerdelivery.Entity.CustomerAccount;
 import com.colon3.cz2006.hawkerdelivery.Entity.Order;
 import com.colon3.cz2006.hawkerdelivery.R;
 
@@ -58,7 +60,6 @@ public class ProcessingOrderAdapter extends ArrayAdapter<Order> {
         else {holder = (Holder)v.getTag();
         }
 
-        //OrderDAOImpl orderDAO = new OrderDAOImpl();
         Order o = orders.get(position);
 
         String id = Integer.toString(o.getOrderID());
@@ -67,15 +68,18 @@ public class ProcessingOrderAdapter extends ArrayAdapter<Order> {
         String price = new Double(o.getTotalPrice()).toString();
         holder.priceView.setText("S$ " + price);
 
-        //String address = orderDAO.getAddressFromOrder(o);
-        //holder.addressView.setText("Location: " + address);
+        int customerId = o.getCustomerID();
+        CustomerDAOImpl customerAccountDAO = new CustomerDAOImpl(parent.getContext());
+        CustomerAccount customerAccount = customerAccountDAO.getCustomerAccount(customerId);
+        String address = customerAccount.getAddress();
+        holder.addressView.setText("Location: " + address);
 
         SimpleDateFormat format = new SimpleDateFormat("hh:mm a, EEE");
         String date = format.format(o.getDateTime());
         holder.dateView.setText("Ordered at " + date);
 
         String hawkerCenter = new Integer(o.getHawkerID()).toString();
-        holder.hawkerView.setText("Hawker " + hawkerCenter);
+        holder.hawkerView.setText("Hawker center " + hawkerCenter);
 
         String remainTime = "Time remain: to be implemented";
         holder.remainTimeView.setText(remainTime);

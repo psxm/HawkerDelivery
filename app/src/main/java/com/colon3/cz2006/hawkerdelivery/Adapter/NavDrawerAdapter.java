@@ -45,7 +45,7 @@ public class NavDrawerAdapter extends ArrayAdapter<DrawerItem> {
         }
         else    holder = (DrawerItemHolder) v.getTag();
 
-        DrawerItem dItem = (DrawerItem) this.drawerItemList.get(position);
+        DrawerItem dItem = this.drawerItemList.get(position);
         String iconString = "drawable/"+dItem.getIcon_source();
         int iconRes = v.getContext().getApplicationContext().getResources().getIdentifier(iconString,null,v.getContext().getApplicationContext().getPackageName());
 

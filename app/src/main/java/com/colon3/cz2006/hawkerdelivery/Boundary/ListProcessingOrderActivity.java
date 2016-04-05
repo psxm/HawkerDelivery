@@ -19,7 +19,8 @@ import java.util.ArrayList;
 public class ListProcessingOrderActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private ListView list;
     private ArrayList<Order> orders = new ArrayList<>();
-    OrderDAOImpl orderDAO;
+    private OrderDAOImpl orderDAO;
+    private ProcessingOrderAdapter processingOrderAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,6 @@ public class ListProcessingOrderActivity extends AppCompatActivity implements Ad
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         list = (ListView)findViewById(R.id.processing_order_list);
         OrderController controller = new OrderController();
-        //orders = orderDAO.getAllOrdersByStatus("No");
         switch (position) {
             case 0:
                 orders = controller.sortByHawkerCenter(orders);
@@ -49,11 +49,9 @@ public class ListProcessingOrderActivity extends AppCompatActivity implements Ad
             case 1:
                 orders = controller.sortByTime(orders);
                 break;
-            default:
-                orders = controller.sortByTime(orders);
         }
-        ProcessingOrderAdapter adapter = new ProcessingOrderAdapter(orders, this);
-        list.setAdapter(adapter);
+        processingOrderAdapter = new ProcessingOrderAdapter(orders, this);
+        list.setAdapter(processingOrderAdapter);
     }
 
     public void onNothingSelected(AdapterView<?> parent) {

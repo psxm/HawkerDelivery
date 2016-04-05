@@ -76,11 +76,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-
             android:textSize="@dimen/button"
             style="@style/LoginButtonCustom"
             android:onClick="login"
             android:text="LOGIN"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REGISTER"
+            android:onClick="register"
+            style="@style/LoginButtonCustom"/>
 
     </LinearLayout>
 </RelativeLayout>

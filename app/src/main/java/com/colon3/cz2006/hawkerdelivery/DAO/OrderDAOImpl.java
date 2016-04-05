@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.colon3.cz2006.hawkerdelivery.Boundary.ListProcessingOrderActivity;
+import com.colon3.cz2006.hawkerdelivery.Entity.CustomerAccount;
 import com.colon3.cz2006.hawkerdelivery.Entity.Dish;
 import com.colon3.cz2006.hawkerdelivery.Entity.Order;
 import com.google.gson.Gson;
@@ -92,7 +94,7 @@ public class OrderDAOImpl implements OrderDAO {
 /**
  * Created by Yeong How on 4/1/2016.
  */
-public class OrderDAOImpl extends SQLiteOpenHelper {
+public class OrderDAOImpl extends SQLiteOpenHelper implements OrderDAO {
 
     // Database Version
     private static final int DATABASE_VERSION = 1;
@@ -303,6 +305,7 @@ public class OrderDAOImpl extends SQLiteOpenHelper {
         db.close();
 
         Log.d("deleteOrder", order.toString());
+
     }
 
     public ArrayList<Order> getAllOrdersByStatus(String status) {
@@ -343,7 +346,7 @@ public class OrderDAOImpl extends SQLiteOpenHelper {
         return orders;
     }
 
-    public Integer getLastId() {
+    public int getLastId() {
         String countQuery = "SELECT * FROM " + TABLE_ORDERS;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
