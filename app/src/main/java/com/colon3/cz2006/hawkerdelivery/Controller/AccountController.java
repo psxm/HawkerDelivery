@@ -17,14 +17,12 @@ public class AccountController {
         this.accDAO = new AccountDAOImpl(context);
     }
 
-    public boolean isAuthenticated(String username,String password,String domain){
+    public Account isAuthenticated(String username,String password,String domain){
         ArrayList<Account> accountArrayList = accDAO.getAccountsByDomain(domain);
-        for(Account acc: accountArrayList){
-            if(acc.getUsername().equals(username)) {
-                if (acc.getPassword().equals(password))
-                    return true;
-            }
+        for(Account acc:accountArrayList){
+            if(acc.getUsername().equals(username)&&acc.getPassword().equals(password))
+                return acc;
         }
-        return false;
+        return null;
     }
 }

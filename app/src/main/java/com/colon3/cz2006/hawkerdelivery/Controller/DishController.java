@@ -45,4 +45,11 @@ public class DishController {
         });
         return result;
     }
+    public ArrayList<Dish> getFavourites(ArrayList<Integer> favourites){
+        ArrayList<Dish> result = new ArrayList<>();
+        for (Integer i : favourites){
+            result.add(dishDAO.getDishByID(i));
+        }
+        return result;
+    }
 }

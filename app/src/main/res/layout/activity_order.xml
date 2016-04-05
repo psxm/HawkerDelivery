@@ -122,13 +122,33 @@
                 android:text="S$0.0"/>
         </LinearLayout>
     </RelativeLayout>
-    <Button
-        android:id="@+id/add_to_cart_btn"
-        android:layout_marginTop="32dp"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ADD TO CART"
-        android:textSize="@dimen/button"
-        style="@style/LoginButtonCustom"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/add_to_fav_btn"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="8dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_favorite_white_24dp"
+            android:text="FAVOURITES"
+            android:textSize="@dimen/button"
+            style="@style/LoginButtonCustom"
+            android:layout_width="match_parent" />
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/add_to_cart_btn"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="8dp"
+            android:drawableLeft="@drawable/ic_add_shopping_cart_white_24dp"
+            android:layout_height="wrap_content"
+            android:text="ADD TO CART"
+            android:textSize="@dimen/button"
+            style="@style/LoginButtonCustom"
+            android:layout_width="match_parent" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -12,14 +12,25 @@ public class Dish implements Parcelable{
     private String imgSource;
     private String categories;
     private double price;
+    private int dishID;
 
-    public Dish(String categories, String imgSource, String name, double price, float rating) {
+    public int getDishID() {
+        return dishID;
+    }
+
+    public void setDishID(int dishID) {
+        this.dishID = dishID;
+    }
+
+    public Dish(String categories, String imgSource, String name, double price, float rating, int dishID) {
         
         this.categories = categories;
         this.imgSource = imgSource;
         this.name = name;
         this.price = price;
         this.rating = rating;
+        this.dishID = dishID;
+
     }
 
     public String getCategories() {
@@ -74,6 +85,7 @@ public class Dish implements Parcelable{
         dest.writeString(imgSource);
         dest.writeString(categories);
         dest.writeDouble(price);
+        dest.writeInt(dishID);
     }
     public Dish(Parcel in){
         this.name=in.readString();
@@ -81,6 +93,7 @@ public class Dish implements Parcelable{
         this.imgSource=in.readString();
         this.categories=in.readString();
         this.price=in.readDouble();
+        this.dishID=in.readInt();
     }
     public static final Parcelable.Creator<Dish> CREATOR
             =new Parcelable.Creator<Dish>(){

@@ -18,7 +18,20 @@ public class AccountDAOImpl extends SQLiteOpenHelper implements AccountDAO {
 /*
     public AccountDAOImpl(){
         accounts = new ArrayList<>();
+<<<<<<< HEAD
         accounts.add(new Account("123","Hippo"));
+=======
+        ArrayList<Integer> list1 = new ArrayList<>();
+        list1.add(1);
+        list1.add(3);
+        list1.add(5);
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(1);
+        list2.add(4);
+        list2.add(6);
+        accounts.add(new CustomerAccount("123","Hippo",list1));
+        accounts.add(new CustomerAccount("1","1",list2));
+>>>>>>> 5df325eab44bc98226f3b59774aa164611683925
         accounts.add(new VendorAccount("234","Yolo"));
         accounts.add(new DeliveryAccount("111", "aaa"));
     }

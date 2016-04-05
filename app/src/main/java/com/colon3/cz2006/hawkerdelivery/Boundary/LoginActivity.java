@@ -16,14 +16,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.colon3.cz2006.hawkerdelivery.Controller.AccountController;
-import com.colon3.cz2006.hawkerdelivery.DAO.AccountDAO;
-import com.colon3.cz2006.hawkerdelivery.DAO.AccountDAOImpl;
 import com.colon3.cz2006.hawkerdelivery.Entity.Account;
 import com.colon3.cz2006.hawkerdelivery.R;
 
 public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private EditText usernameEText;
     private EditText passwordEText;
+    public static Account accountSession;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,9 +106,12 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
         String username = usernameEText.getText().toString();
         String password = passwordEText.getText().toString();
+        accountSession = accController.isAuthenticated(username,password,s);
 
-        if (accController.isAuthenticated(username, password, s)) {
+        if(accountSession!=null) {
+
             if (s.equals("Customer")) {
+
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);
             }

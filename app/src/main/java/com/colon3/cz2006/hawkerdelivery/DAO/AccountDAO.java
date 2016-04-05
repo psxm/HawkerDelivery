@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * Created by Hippo on 02/04/2016.
  */
 public interface AccountDAO {
+
     void addAccount(Account account);
     Account getAccount(int id);
     ArrayList<Account> getAllAccounts();
