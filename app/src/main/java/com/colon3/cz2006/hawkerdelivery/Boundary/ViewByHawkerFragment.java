@@ -7,8 +7,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
+import com.colon3.cz2006.hawkerdelivery.Adapter.HawkerCentreAdapter;
+import com.colon3.cz2006.hawkerdelivery.Controller.HawkerCentreController;
+import com.colon3.cz2006.hawkerdelivery.Entity.HawkerCentre;
 import com.colon3.cz2006.hawkerdelivery.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +29,8 @@ import com.colon3.cz2006.hawkerdelivery.R;
 public class ViewByHawkerFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private ListView list;
+    public ArrayList<HawkerCentre> hcArrayList = new ArrayList<HawkerCentre>();
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -65,8 +75,18 @@ public class ViewByHawkerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_view_by_hawker,container,false);
+        View view = inflater.inflate(R.layout.fragment_view_by_hawker,container,false);
+        viewList();
         return view;
+    }
+
+    public void viewList() {
+        list = (ListView) getView().findViewById(R.id.hawker_centre_listview);
+        HawkerCentreController controller = new HawkerCentreController();
+
+        hcArrayList = controller.allHawkerCentres();
+        HawkerCentreAdapter adapter = new HawkerCentreAdapter(hcArrayList, getActivity());
+        list.setAdapter(adapter);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
